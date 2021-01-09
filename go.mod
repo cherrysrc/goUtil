@@ -1,4 +1,4 @@
-module github.com/cherrysrc/goEvent
+module github.com/cherrysrc/goUtil
 
 go 1.15
 
