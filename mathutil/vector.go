@@ -1,31 +1,15 @@
 package mathutil
 
-import "fmt"
-
-type Vector2f struct {
-	X float32
-	Y float32
-}
-
-func (vector *Vector2f) Add(other Vector2f) {
-	vector.X += other.X
-	vector.Y += other.Y
-}
-
-func (vector *Vector2f) Sub(other Vector2f) {
-	vector.X -= other.X
-	vector.Y -= other.Y
-}
-
-func (vector *Vector2f) Scl(scalar float32) {
-	vector.X *= scalar
-	vector.Y *= scalar
-}
-
-func (vector *Vector2f) Equals(other Vector2f) bool {
-	return !(vector.X != other.X || vector.Y != other.Y)
-}
-
-func (vector *Vector2f) Print() {
-	fmt.Printf("(%f, %f)\n", vector.X, vector.Y)
+//IVector interface for all types of vectors
+type IVector interface {
+	//Add a different vector onto this one
+	Add(IVector)
+	//Sub substracts a different vector from this one
+	Sub(IVector)
+	//Scl multiplies this vectors components with a given scalar
+	Scl(float32)
+	//Equals returns true if another vector equals this one
+	Equals(IVector) bool
+	//Print the vector
+	Print(IVector)
 }
